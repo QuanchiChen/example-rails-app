@@ -139,7 +139,11 @@ heroku buildpacks:set heroku/nodejs -i 1
 heroku buildpacks:set heroku/ruby -i 2
 
 heroku buildpacks
+
+heroku config:set NODE_OPTIONS=--openssl-legacy-provider
 ```
+
+For the last command, you may have a look at this [issue](https://github.com/webpack/webpack/issues/14532). You may skip executing that command and see if Heroku gives a similar error.
 
 Deploy the application to Heroku.
 
