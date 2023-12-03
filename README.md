@@ -101,12 +101,14 @@ Also, please [specify the Node.js version used by Heroku](https://devcenter.hero
 }
 ```
 
-FInally, commit the code.
+Commit the code.
 
 ```
 git add -A
 
 git commit -m "Initialise repository"
+
+git log
 ```
 
 
@@ -116,6 +118,33 @@ git commit -m "Initialise repository"
 Create a Heroku application.
 
 ```
-heroku create 
+heroku create --stack heroku-20
+
+git remote -v
 ```
 
+Provision a **non-free** database.
+
+```
+heroku addons:create heroku-postgresql:mini
+```
+
+Wait a minute. Before deploying the code to Heroku, we need to execute a few more commands.
+
+```
+heroku buildpacks
+
+heroku buildpacks:set heroku/nodejs -i 1
+
+heroku buildpacks:set heroku/ruby -i 2
+
+heroku buildpacks
+```
+
+Deploy the application to Heroku.
+
+```
+git push heroku master
+```
+
+Now we are at the end of this amazing journey!
