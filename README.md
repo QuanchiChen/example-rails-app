@@ -152,3 +152,19 @@ git push heroku master
 ```
 
 Now we are at the end of this amazing journey!
+
+## Step 4 - Finally
+
+Remove the database and the application from your Heroku account to minimise the cost.
+
+```
+heroku addons:destroy heroku-postgresql
+
+heroku apps:destroy
+
+heroku addons --all
+
+heroku apps --all
+```
+
+Goodbye! Enjoy coding and deploying!
